@@ -1,5 +1,5 @@
 # flask-crud-todoapp
-basic flask crud app - todo list app
+basic flask crud app - todo list app ( all the files are in master branch )
 
 you can deploy the app in heroku 
 # CRUD Flask Application
