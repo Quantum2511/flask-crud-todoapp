@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center;">Task Master</h1>
+    
+    {% for task in tasks %}
+    {% if task.status == "pending" %}
+        
+    {% else %}
+    <h4 style="text-align: center;">You have not completed any tasks or you dont have any tasks. lessgoooo!! create a task below</h4>
+    {% endif %}
+    {% endfor %}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Status</th>
+        </tr>
+        {% for task in tasks %}
+        {% if task.status == "pending" %}
+        <tr>
+            <td>{{ task.content }}</td>
+            <td>{{ task.date_created.date() }}</td>
+            <td>{{ task.status }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Add Task">
+    </form>
+
+</div>
+
+<div class = "completed-div">
+    <form action="/" class="completed-btn">
+        <button>home</button>
+    </form>    
+
+    <form action="/completed_tasks/" class="completed-btn">
+        <button>completed tasks</button>
+    </form>
+
+</div>
+
+
+{% endblock %}
